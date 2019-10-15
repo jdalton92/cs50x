@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+
+    <h1>Portfolio</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity Owned</th>
+                <th scope="col">Market Price Per Share</th>
+                <th scope="col">Total Market Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for share, share_dict in shares_owned.items() %}
+            <tr>
+                <td>{{ share }}</td>
+                <td class="td-body">{{ share_dict["number"] }}</td>
+                <td class="td-body">{{ share_dict["price"] }}</td>
+                <td class="td-body">{{ share_dict["total"] }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>Cash</td>
+                <td class="td-body"></td>
+                <td class="td-body"></td>
+                <td class="td-body">{{ cash }}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="td-footer">Total</td>
+                <td class="td-footer"></td>
+                <td class="td-footer"></td>
+                <td class="td-footer"><b>{{ total }}</b></td>
+            </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}

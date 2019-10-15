@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post" class="needs-validation" novalidate>
+
+        <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input class="form-control" type="text" id="full-name" name="full-name" placeholder="Firstname Lastname" autofocus required>
+            <div class="invalid-feedback">
+                Please enter your full name
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email-address">Email address</label>
+            <input type="email" class="form-control" id="email-address" name="email-address" placeholder="name@example.com" required>
+            <div class="invalid-feedback">
+                Please enter your email address
+            </div>
+        </div>
+
+        <div>
+            <label>Gender</label>
+        </div>
+        <div class="form-check" id="form-check1">
+            <input class="form-check-input" type="radio" name="gender-radios" id="male" value="Male">
+            <label class="form-check-label" for="male">
+                Male
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender-radios" id="female" value="Female">
+            <label class="form-check-label" for="female">
+                Female
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender-radios" id="other" value="Other">
+            <label class="form-check-label" for="other">
+                Other
+            </label>
+        </div>
+
+          <div class="form-group" id="favourite-language-group">
+            <label for="favourite-language">Favourite Programming Language</label>
+            <select class="form-control" id="favourite-language" name="favourite-language" size="7" required>
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="C++">C++</option>
+                <option value="C#">C#</option>
+                <option value="React">React</option>
+                <option value="PHP">PHP</option>
+                <option value="Other">Other</option>
+            </select>
+            <small class="form-text text-muted">Hold ctrl or shift to select multiple</small>
+            <div class="invalid-feedback">
+                Please select your favourite language
+            </div>
+        </div>
+
+        <div class="form-group">
+            <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+            <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+        </div>
+
+
+    </form>
+
+    <script>
+
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+
+    </script>
+
+{% endblock %}

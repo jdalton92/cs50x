@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col">
+        <form action="/compare" enctype="multipart/form-data" method="post">
+
+            <div>
+                <input type="file" name="file1">
+            </div>
+            <div>
+                <input type="file" name="file2">
+            </div>
+            <br>
+            <div>
+                <input name="algorithm" type="radio" value="lines">
+                <label>Compare Lines</label>
+            </div>
+            <div>
+                <input name="algorithm" type="radio" value="sentences">
+                <label>Compare Sentences</label>
+            </div>
+            <div>
+                <input name="algorithm" type="radio" value="substrings">
+                <label>Compare Substrings</label>
+                <input name="length" min="1" placeholder="length of substring" type="numer">
+            </div>
+
+            <button type="submit">Compare</button>
+
+        </form>
+    </div>
+
+{% endblock %}
