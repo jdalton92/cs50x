@@ -1,4 +1,4 @@
-# Project Title
+# CS50
 
 CS50x Problem Sets done by James Dalton 2019
 
